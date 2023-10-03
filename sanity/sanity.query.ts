@@ -18,3 +18,19 @@ export async function getProfile() {
     }`,
   );
 }
+
+export async function getJob() {
+  return client.fetch(
+    groq`*[_type == "job"]{
+      _id,
+      description,
+      jobTitle,
+      logo,
+      name,
+      url,
+      startDate,
+      endDate,
+    }
+    `,
+  );
+}
